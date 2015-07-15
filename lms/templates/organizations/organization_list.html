@@ -1,0 +1,28 @@
+{% extends "site_base.html" %}
+
+{% load classes_tags %}
+
+{% block head_title %}Organizations{% endblock %}
+
+{% block body_class %}organization{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <h1><i class="fa fa-building"></i> Organizations</h1>
+
+            <p>
+                Eventually these will be served up at separate domains, but for
+                development and testing, they're all listed here.
+            </p>
+
+            {% if organization_list %}
+                <ul>
+                    {% for organization in organization_list %}
+                        <li><a href="{% url 'organization_detail' organization.slug %}">{{ organization }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

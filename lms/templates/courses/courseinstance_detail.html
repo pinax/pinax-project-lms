@@ -1,0 +1,83 @@
+{% extends "site_base.html" %}
+
+{% load classes_tags %}
+
+{% block head_title %}{{ courseinstance }}{% endblock %}
+
+{% block body_class %}course{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <h1 class="course-name">
+                {{ courseinstance.course.name }}
+            </h1>
+            <div class="meta">
+                {{ courseinstance.start_date }}
+                &ndash;
+                {{ courseinstance.end_date }}
+                /
+                {{ courseinstance.institution }}
+            </div>
+            {% if view.is_enrolled %}
+                {% with view.modules_needing_lectures as mnl %}
+                    {% if mnl %}
+                <div class="alert alert-warning" role="alert">
+                    <strong>Warning</strong> You have yet to select which
+                    lecture to attend for the following modules:
+                    {% for m in mnl %}
+                    <p>{{ m.module.name }}</p>
+                    {% endfor %}
+                </div>
+                    {% endif %}
+                {% endwith %}
+            {% endif %}
+
+            <h2>Enrollment</h2>
+
+            <p>Enrollment is {{ courseinstance.trainees_team.get_member_access_display }}.</p>
+
+            {% include "courses/_team_actions.html" %}
+
+            {% if view.is_enrolled %}
+                {% if courseinstance.lectures.exists %}
+                    <h2>Lectures</h2>
+
+                    {% for l in courseinstance.lectures.all %}
+                        {% lecture l user %}
+                    {% endfor %}
+                {% endif %}
+            {% else %}
+                    <h2>Modules</h2>
+                    <ul>
+                    {% for m in courseinstance.course_version.modules.all %}
+                        <li>{{ m.name }}</li>
+                    {% endfor %}
+                    <ul>
+            {% endif %}
+
+            {% if course.programcourse_set.exists %}
+                <h2>Programs</h2>
+
+                <ul>
+                    {% for programcourse in course.programcourse_set.all %}
+                        <li>{{ programcourse.program }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if view.is_enrolled  %}
+                <h2>Documents</h2>
+                {% if courseinstance.course_version.documents.members %}
+                    <ul>
+                    {% for doc in courseinstance.course_version.documents.members %}
+                        <li><a href="{{doc.file.url}}">{{doc}}</a></li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>There are no documents or resources currently associated with this course.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

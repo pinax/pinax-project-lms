@@ -1,0 +1,33 @@
+<div>
+    <p>
+        <strong>{{ lecture.name }}</strong>
+        {{ lecture.date }}
+        {{ lecture.start_time }}
+        &ndash;
+        {{ lecture.end_time }}
+        <br>
+        {{ lecture.room }}
+        {% if enrolled_in_course %}
+            {% if lecture.module.documents.members %}
+            <p>Associated documents:</p>
+            <ul>
+                {% for doc in lecture.module.documents.members %}
+                <li><a href="{{ doc.get_absolute_url }}">{{ doc.name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if trainee %}
+                <form method="post" action="{% url 'lecture_unenroll' lecture.pk %}">
+                    {% csrf_token %}
+                    <button class="btn btn-warning btn-xs">Un-enroll</button>
+                </form>
+            {% else %}
+                <form method="post" action="{% url 'lecture_enroll' lecture.pk %}">
+                    {% csrf_token %}
+                    <button class="btn btn-info btn-xs">Enroll</button>
+                    ({{ lecture.seats_remaining }} seats remaining)
+                </form>
+            {% endif %}
+        {% endif %}
+    </p>
+</div>

@@ -1,0 +1,44 @@
+{% extends "site_base.html" %}
+
+{% load classes_tags %}
+
+{% block head_title %}{{ organization.name }}{% endblock %}
+
+{% block body_class %}organization{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="container">
+            <h1>{{ organization.name }}</h1>
+
+            <h2>Programs</h2>
+
+            <ul>
+                {% for organizationprogram in organization.organizationprogram_set.all %}
+                    <li>{{ organizationprogram.program }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Courses</h2>
+
+            <div class="course-list">
+                {% for organizationcourseinstance in organization.organizationcourseinstance_set.all %}
+                    {% with organizationcourseinstance.course_instance as course_instance %}
+                    <h3 class="course-name">
+                        <a href="{% url 'courseinstance_detail' course_instance.pk %}">{{ course_instance.course.name }}</a>
+                    </h3>
+                    <div class="meta">
+                        {{ course_instance.start_date }}
+                        &ndash;
+                        {{ course_instance.end_date }}
+                        /
+                        {{ course_instance.institution }}
+                        <br>
+                        Enrollment is {{ course_instance.trainees_team.get_member_access_display }}
+                    </div>
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

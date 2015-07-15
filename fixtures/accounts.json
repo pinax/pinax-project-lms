@@ -1,0 +1,137 @@
+[
+{
+    "fields": {
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2015-04-20T19:09:57.511Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$i0SMuxkytn7N$BrJQvPbzGbm+BdTKK8fYhVlhfpUrz3gK/QzsrJXNNfI=",
+        "email": "admin@admin.com",
+        "date_joined": "2015-04-20T19:09:37.244Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "username": "KMS15",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-04-20T19:59:20.076Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$WMBAxtrbwjff$9rJK9XtxV9rufx5fjNYiKmiv0n4zblPH0SRRcYftZes=",
+        "email": "",
+        "date_joined": "2015-04-20T19:59:20.076Z"
+    },
+    "model": "auth.user",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "JTD5",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-04-20T19:59:29.924Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$o6FRXoZCe1a9$yBVO55IbcH8WZffvEf/MZIZ2bnss3keSAcozDIVJ70Q=",
+        "email": "",
+        "date_joined": "2015-04-20T19:59:29.924Z"
+    },
+    "model": "auth.user",
+    "pk": 3
+},
+{
+    "fields": {
+        "username": "MJD2",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-04-20T19:59:38.832Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$di2yU7dbz5ck$nb1D79RKL/BKgn6Ygpa9cRFx+NhqV926EhRMsl4BFAM=",
+        "email": "",
+        "date_joined": "2015-04-20T19:59:38.832Z"
+    },
+    "model": "auth.user",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "TJ88",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-04-20T19:59:51.295Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$15000$g6r0QYhM2NFY$9U5arsxsmnC+vybaiI3sXuWoozHqokeG1zbC5bplr2s=",
+        "email": "",
+        "date_joined": "2015-04-20T19:59:51.295Z"
+    },
+    "model": "auth.user",
+    "pk": 5
+},
+{
+    "fields": {
+        "timezone": "",
+        "user": 1,
+        "language": "en-us"
+    },
+    "model": "account.account",
+    "pk": 1
+},
+{
+    "fields": {
+        "timezone": "",
+        "user": 2,
+        "language": "en-us"
+    },
+    "model": "account.account",
+    "pk": 2
+},
+{
+    "fields": {
+        "timezone": "",
+        "user": 3,
+        "language": "en-us"
+    },
+    "model": "account.account",
+    "pk": 3
+},
+{
+    "fields": {
+        "timezone": "",
+        "user": 4,
+        "language": "en-us"
+    },
+    "model": "account.account",
+    "pk": 4
+},
+{
+    "fields": {
+        "timezone": "",
+        "user": 5,
+        "language": "en-us"
+    },
+    "model": "account.account",
+    "pk": 5
+}
+]

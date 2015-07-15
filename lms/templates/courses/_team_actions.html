@@ -1,0 +1,29 @@
+{% if view.trainees_team_info.state == "invited" %}
+    <p>
+        You have been invited to join this team.
+        Click <b>join</b> below to accept.
+    </p>
+{% endif %}
+
+<div>
+    {% if view.trainees_team_info.can_join %}
+        <form method="post" action="{% url 'course_enroll' courseinstance.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Enroll</button>
+        </form>
+    {% endif %}
+
+    {% if view.trainees_team_info.can_leave %}
+        <form method="post" action="{% url 'course_unenroll' courseinstance.pk %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Unenroll</button>
+        </form>
+    {% endif %}
+
+    {% if view.trainees_team_info.can_apply %}
+        <form method="post" action="{% url 'team_apply' view.trainees_team_info.team.slug %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Apply</button>
+        </form>
+    {% endif %}
+</div>

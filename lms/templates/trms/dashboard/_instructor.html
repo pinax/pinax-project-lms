@@ -1,0 +1,18 @@
+{% load courses_tags %}
+
+{% courses_as_instructor user as course_versions %}
+
+{% if course_versions %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Courses you are instructing</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                {% for course_version in course_versions %}
+                    <li><a href="{% url 'courseversion_detail' course_version.pk %}">{{ course_version }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+     </div>
+{% endif %}

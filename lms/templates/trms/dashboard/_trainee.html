@@ -1,0 +1,51 @@
+{% load courses_tags %}
+{% load classes_tags %}
+
+{% courses_as_trainee user as course_instances %}
+{% classes_as_trainee user as classes %}
+{% courses_needing_attention user as attention %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Courses you are enrolled in</h3>
+    </div>
+    <div class="panel-body">
+        {% if course_instances %}
+            {% for course_instance in course_instances %}
+                <h3 class="course-name">
+                    <a href="{% url 'courseinstance_detail' course_instance.pk %}">{{ course_instance.course.name }}</a>
+                </h3>
+            {% endfor %}
+        {% else %}
+            <p>You are not enrolled in any courses.</p>
+        {% endif %}
+    </div>
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Classes you are enrolled in</h3>
+    </div>
+    <div class="panel-body">
+        {% if attention %}
+        <div class="alert alert-warning" role="alert">
+            <strong>Warning!</strong> You have the enrolled in the following
+            courses that require you to enroll yourself into lectures:
+            <ul>
+                {% for course_instance in attention %}
+                <li><a href="{% url 'courseinstance_detail' course_instance.pk %}">{{ course_instance.course.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% if classes %}
+            {% for l in classes %}
+                <h3>{{ l.course_instance.course.name }}</h3>
+                {% lecture l user %}
+            {% endfor %}
+        {% else %}
+            <p>You have not enrolled in any classes yet.</p>
+        {% endif %}
+    </div>
+</div>
