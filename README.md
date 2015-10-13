@@ -14,6 +14,7 @@ pinax-project-lms
 -------------------
 
 `pinax-project-lms` is a starter project to bring together components of the Pinax Learning Management System.
+`pinax-project-lms` is currently a work in progress and is going to be an overall LMS with course content, student management, etc.
 
 NOTE: this is currently a project not a project *template*.
 
