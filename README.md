@@ -22,7 +22,7 @@ NOTE: this is currently a project not a project *template*.
 Documentation
 --------------
 
-The pinax-project-lms documentation is currently under construction. If you would like to help us write documenation, please join our Slack channel and let us know! The Pinax documentation is available at http://pinaxproject.com/pinax/.
+The pinax-project-lms documentation is currently under construction. If you would like to help us write documentation, please join our Slack channel and let us know! The Pinax documentation is available at http://pinaxproject.com/pinax/.
 
 
 Code of Conduct
